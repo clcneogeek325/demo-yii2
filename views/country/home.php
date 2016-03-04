@@ -4,3 +4,13 @@ use yii\widgets\LinkPager;
 ?>
 
 <?= $msg ?>
+
+<h1>Countries</h1>
+<ul>
+<?php foreach ($lista as $country): ?>
+    <li>
+        <?= Html::encode("{$country['name']} ({$country['code']})") ?>:
+        <?= $country['population'] ?>
+    </li>
+<?php endforeach; ?>
+</ul>

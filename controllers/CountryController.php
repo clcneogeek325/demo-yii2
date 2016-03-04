@@ -31,14 +31,9 @@ class CountryController extends Controller
     
     public function actionHome()
     {
-        $country1  = Yii::$app->db_mysql //conexion mysql
-        ->createCommand('SELECT * FROM country')->queryAll();
-        $country2  = Yii::$app->db_pssql //conexion posgresql
-        ->createCommand('SELECT * FROM country')->queryAll();
-        $country3  = Yii::$app->db_sqlite //conexion sqlite
-        ->createCommand('SELECT * FROM country')->queryAll();
-        
-        $msg = "mi mensajrr";
-        return $this->render('home',['msg'=>$msg]);
+        $lista = Yii::$app->db->createCommand('CALL Sp_countrys()')
+            ->queryAll();
+        $msg = "Lista cargada desde un store procedure";
+        return $this->render('home',['msg'=>$msg,'lista'=>$lista]);
     }
 }

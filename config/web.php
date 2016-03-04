@@ -37,7 +37,7 @@ $config = [
                 ],
             ],
         ],
-        'db_mysql' => require(__DIR__ . '/db_mysql.php'),
+        'db' => require(__DIR__ . '/db.php'),
         'db_pssql' => require(__DIR__ . '/db_pssql.php'),
         'db_sqlite' => require(__DIR__ . '/db_sqlite.php'),
         /*
